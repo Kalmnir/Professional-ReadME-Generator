@@ -75,13 +75,14 @@ const questions = [
     {
         type: 'list',
         message: 'Please select a license for your project',
-        choices: ['afl-3.0', 'apache-2.0', 'ecl-2.0', 'isc', 'mit', 'mpl-2.0', 'ms-pl', 'nsca', 'osl-3.0', 'unlicense'],
+        choices: ['Academic Free License v3.0', 'Apache License 2.0', 'Educational Community License v2.0', 'MIT', 'Mozilla Public License 2.0', 'Microsoft Public License', 'NCSA Open Source License', 'Open Software License 3.0', 'The Unlicense'],
+        deafult: 'MIT',
         name: 'license',
     },
     {
         type: 'input',
         message: 'If applicable, provide guidelines on how other developers can contribute to this project.',
-        name: 'contributing',
+        name: 'contribution',
     },
     {
         type: 'input',
@@ -101,7 +102,16 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() { }
+async function init() {
+    try {
+        const data = await inquirer.prompt(questions);
+        const generateContent = generateMarkdown(data);
+        console.log(generateContent);
+
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 // Function call to initialize app
 init();
