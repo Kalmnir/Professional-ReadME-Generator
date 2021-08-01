@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+// const util = require('util');
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -9,11 +10,6 @@ const questions = [
         message: 'What is your GitHub username? (No @ needed)',
         name: 'username',
         default: 'Kalmnir',
-    },
-    {
-        type: 'input',
-        message: 'What is the name of your GitHub repo?',
-        name: 'repo',
     },
     {
         type: 'input',
@@ -46,7 +42,7 @@ const questions = [
     {
         type: 'list',
         message: 'Please select a license for your project',
-        choices: ['Academic Free License v3.0', 'Apache License 2.0', 'Educational Community License v2.0', 'MIT', 'Mozilla Public License 2.0', 'Microsoft Public License', 'NCSA Open Source License', 'Open Software License 3.0', 'The Unlicense'],
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT', 'Mozilla Public License 2.0', 'Open Software License 3.0', 'The Unlicense'],
         deafult: 'MIT',
         name: 'license',
     },
@@ -73,12 +69,13 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-async function init() {
+function init() {
     try {
-        const data = await inquirer.prompt(questions);
-        const generateContent = generateMarkdown(data);
-        console.log(generateContent);
-
+        inquirer.prompt(questions)
+            .then(function (data) {
+                writeToFile('README.md', generateMarkdown(data));
+                console.log(data)
+            })
     } catch (err) {
         console.error(err);
     }
