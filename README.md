@@ -26,7 +26,7 @@
   This project requires the following dependencies to function:  to run this program, you need to have npm inquirer installed along with node js.
   
 ## Usage
-  To use this project, simply open the integrated terminal in vs code and type node index.js.
+  To use this project, simply open index.js in the integrated terminal in vs code and type node index.js.
   
 ## Test
   To test this program, simply run it the way instructed in the usage section of this README
