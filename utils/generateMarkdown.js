@@ -72,7 +72,7 @@ function generateMarkdown(data) {
 \n[Questions](#questions)
   
 ## Installation
-  This project requires the following dependencies to fucntion: ${data.installation}
+  This project requires the following dependencies to function: ${data.installation}
   
 ## Usage
   To use this project, ${data.usage}
