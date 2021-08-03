@@ -31,7 +31,7 @@
 ## Test
   To test this program, simply run it the way instructed in the usage section of this README
 
-  Link to example video:  (https://github.com/Kalmnir/Professional-ReadME-Generator/tree/main/utils/resources)
+  Link to example video:  [youtube](https://youtu.be/CjsDfN8ZYIY)
   
 ## Contribution
   To contribute to this project, N/A
